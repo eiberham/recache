@@ -26,23 +26,19 @@ func onReady() {
 	}
 
 	systray.SetIcon(getIcon("assets/icon.ico"))
-	systray.SetTooltip("Manage arc cache")
+	systray.SetTooltip("Manage fusion cache")
 
-	init := systray.AddMenuItem("Start content cache", "Start content cache")
-	stop := systray.AddMenuItem("Stop content cache", "Stop content cache")
+	restart := systray.AddMenuItem("Restart content cache", "Restart content cache")
 	systray.AddSeparator()
 	quit := systray.AddMenuItem("Quit", "Close")
 
 	go func() {
 		for {
 			select {
-			case <-init.ClickedCh:
-				if !(runsContainer(Container)) {
-					cli.ContainerStart(context.Background(), Container, types.ContainerStartOptions{})
-				}
-			case <-stop.ClickedCh:
+			case <-restart.ClickedCh:
 				if runsContainer(Container) {
 					cli.ContainerStop(context.Background(), Container, nil)
+					cli.ContainerStart(context.Background(), Container, types.ContainerStartOptions{})
 				}
 			case <-quit.ClickedCh:
 				systray.Quit()
