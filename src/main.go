@@ -45,8 +45,7 @@ func onReady() {
 			select {
 			case <-restart.ClickedCh:
 				if runsContainer(Container) {
-					cli.ContainerStop(context.Background(), Container, nil)
-					cli.ContainerStart(context.Background(), Container, types.ContainerStartOptions{})
+					cli.ContainerRestart(context.Background(), Container, nil)
 				}
 			case <-quit.ClickedCh:
 				systray.Quit()
