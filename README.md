@@ -1,11 +1,14 @@
 # Recache
 Restart fusion cache
 
-Alright this is a tiny tool i built out of necessity in order to help me speed things up in my job, what it does 
+<p align="center">
+  <img src="./recache.png" alt="snapshot" />  
+</p>
+
+So this is a tiny tool i built out of necessity in order to help me speed things up in my job, what it does 
 is basically it lets me restart a docker container with just a couple of clicks in the system tray. 
 As i work with an engine called fusion based on JAMstack which leverages react library for rendering and it kind of has a docker container inside which among other 
-things cache its api content i need a way to somewhat reset this functionality during development so as i'm 
-a golang beginner i thought it would be a good challenge to see if i could do it.
+things cache its api content i need a way to somewhat reset this functionality during development to get things done faster.
 
 <table border="0" cellspacing="0" cellpadding="0" style="border-collapse: collapse; border: none;">
   <tr>
