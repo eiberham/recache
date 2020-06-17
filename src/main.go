@@ -83,9 +83,9 @@ func runsContainer(name string) bool {
 }
 
 func getIcon(src string) []byte {
-	b, err := ioutil.ReadFile(src)
+	icon, err := ioutil.ReadFile(src)
 	if err != nil {
 		fmt.Print(err)
 	}
-	return b
+	return icon
 }
