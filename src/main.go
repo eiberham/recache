@@ -3,12 +3,12 @@ package main
 import (
 	"context"
 	"fmt"
-	"io/ioutil"
 
 	"github.com/docker/docker/api/types"
 	"github.com/docker/docker/api/types/filters"
 	"github.com/docker/docker/client"
 	"github.com/getlantern/systray"
+	"github.com/gobuffalo/packr/v2"
 )
 
 // Container ...
@@ -25,7 +25,15 @@ func onReady() {
 		panic(err)
 	}
 
-	systray.SetIcon(getIcon("assets/icon.ico"))
+	box := packr.New("box", "./assets")
+
+	icon, err := box.Find("icon.ico")
+	if err != nil {
+		fmt.Println("Couldn't find the icon")
+		panic(err)
+	}
+
+	systray.SetIcon(icon)
 	systray.SetTooltip("Manage fusion cache")
 
 	restart := systray.AddMenuItem("Restart content cache", "Restart content cache")
@@ -80,12 +88,4 @@ func runsContainer(name string) bool {
 	}
 
 	return false
-}
-
-func getIcon(src string) []byte {
-	icon, err := ioutil.ReadFile(src)
-	if err != nil {
-		fmt.Print(err)
-	}
-	return icon
 }
