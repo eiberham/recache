@@ -19,6 +19,12 @@ a golang beginner i thought it would be a good challenge to see if i could do it
 
 ## How to build it :rocket: 
 
+Install these dependencies
+
+```console
+foo@bar:~$ sudo apt install libappindicator3-dev gir1.2-appindicator3-0.1
+```
+
 Clone the repo
 
 ```console
