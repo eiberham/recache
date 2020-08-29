@@ -31,7 +31,7 @@ foo@bar:~$ sudo apt install libappindicator3-dev gir1.2-appindicator3-0.1
 Clone the repo
 
 ```console
-foo@bar:~$ git clone https://github.com/wwleak/recache.git
+foo@bar:~$ git clone https://github.com/eiberham/recache.git
 ```
 
 Change directory into the src folder
